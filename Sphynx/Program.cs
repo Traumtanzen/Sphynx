@@ -51,7 +51,6 @@ namespace Sphynx
                         notTurn = false;
                         goto MeetSphynx;
                 }
-
             }
         MeetSphynx:
             Console.WriteLine("The time for riddles has come.");
@@ -63,24 +62,58 @@ namespace Sphynx
                 string firstRiddle = Console.ReadLine();
                 switch (firstRiddle.ToLower())
                 {
-                    case "Ice":
+                    case "ice":
                         Console.WriteLine("Well done! The next riddle.");
+                        notIce = true;
                         break;
                     default:
                         Console.WriteLine("You should think harder. My patience's for you. Try again.");
+                        notIce = false;
                         break;
                 }
-
             }
-
-
-
-
+            Console.WriteLine("What gives you the strength and power to walk through a wall?");
+            bool notDoor = false;
+            while (notDoor)
+            {
+                string secondRiddle = Console.ReadLine();
+                switch (secondRiddle.ToLower())
+                {
+                    case "door":
+                        Console.WriteLine("Well. We're coming to an end.");
+                        notDoor = true;
+                        break;
+                    default:
+                        Console.WriteLine("Think harder! My patience is almost out.");
+                        notDoor = false;
+                        break;
+                }
+            }
+            Console.WriteLine("Now you'll have only one chance. Listen attentively and show your best.");
+            Console.WriteLine("Which creature walks on four legs in the morning, two legs in the afternoon, and three legs in the evening?");
+            bool notMan = false;
+            while (notMan)
+            {
+                string lastRiddle = Console.ReadLine();
+                switch (lastRiddle.ToLower())
+                {
+                    case "man":
+                        Console.WriteLine("Great! For now you'll be rewarded.");
+                        notMan = true;
+                        break;
+                    default:
+                        Console.WriteLine("You should think harder. My patience's for you. Try again.");
+                        notMan = false;
+                        goto PreBadEnd;
+                }
+            }
         GoodEnd:
             Console.WriteLine("The Spnynx is pleased with your answer.");
             Console.WriteLine("He slowly disappears leaving you a beutiful gem. This is your prize.");
             Console.WriteLine("The rocks has opened, and you see the light. Now you may go home");
             goto Ending;
+        PreBadEnd:
+            Console.WriteLine("The Spynx looked disappointed with you. The last you saw was the darkness of his abysmal throat.");
         BadEnd:
             Console.WriteLine("Your journey is over. You died.");
         Ending:
@@ -95,6 +128,6 @@ namespace Sphynx
                 Console.WriteLine("Bye.");
             }
         }
-        
+
     }
 }
